@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="post-entry">
+    <br>
+        <h2>Username: {{ candidate.user }}</h2>
+        <p>ФИО: {{ candidate.first_name }} {{ candidate.last_name }}</p>
+        <h3>Навыки:</h3>
+        {% for key, value in candidate.skills.items %}
+            <p>{{ key }}: {{ value }}
+{#            <p>{{ key }}: {% for i in value %} {{ i }} {% endfor %}</p>#}
+        {% endfor %}
+        <p><a href="#">+ Добавить навык </a></p>
+
+{#        <p><a href="{% url 'post_edit' candidate.pk %}">+ Edit Candidate Info </a></p>#}
+{#        <p><a href="{% url 'post_delete' candidate.pk %}">+ Delete Candidate Info </a></p>#}
+    </div>
+
+{% endblock content %}
+

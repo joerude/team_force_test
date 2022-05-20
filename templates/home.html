@@ -1,0 +1,22 @@
+{% extends './base.html' %}
+{% block title %}Главная страница{% endblock %}
+{% block header %} {% endblock %}
+
+{% block content %}
+    <h1 align="center">Список кандидатов:</h1>
+    <div class="container">
+    <div class="row">
+    {% for profile in profile_list %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title">{{ profile.first_name }} {{ profile.last_name }}</h4>
+                    <p class="card-text">Био: {{ profile.bio }} </p>
+                    {% if profile.skill_set %} {{ profile.skill_set }} {% endif %}
+                </div>
+            </div>
+        </div>
+
+    {% endfor %}
+{% endblock %}
+

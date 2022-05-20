@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% for candidate in profile_list %}
+    <div class="post-entry">
+        <h2><a href="{% url 'post_detail' candidate.pk %}">{{ candidate.user }}</a></h2>
+        <p>{{ candidate.first_name }} {{ candidate.last_name }}</p>
+            <h3>Навыки:</h3>
+
+        {% for key, value in candidate.skills.items %}
+            <p>{{ key }}: {{ value }}
+        {% endfor %}
+    </div>
+  {% endfor %}
+{% endblock content %}
+
